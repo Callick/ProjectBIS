@@ -1,0 +1,60 @@
+body {
+	background-color:#D6EAF8;
+	text-align:center;
+}
+.nav{
+	margin-top:50px;
+	margin-left:300px;
+}
+ul li{
+	display:inline-block;
+}
+table{
+	border:2px dashed #C0C0C0;
+	border-collapse:collapse;
+	margin-left:10px;
+	margin-right:10px;
+	margin-top:100px;
+}
+.findus{
+	padding:20px;
+	margin-left:-800px;
+}
+.fbpage{
+	margin-left:900px;
+
+}
+.Hcontent{
+	margin-top:80px;
+	margin-left:200px;
+	margin-right:15px;
+	width:950px;
+	
+}
+a{
+	text-decoration:none;
+	color:#28B463;
+	font-family:cursive;
+}
+ul ul{
+	display:none;
+	position:absolute;
+}
+li a{
+	font-size:18px;
+	color:#7DB3FD;
+	background-color: #D6EAF8;
+	padding: 10px;
+}
+li a:hover{
+	color:white;
+	background-color:purple;
+}
+ul li:hover ul{
+	display:block;
+	overflow:auto;
+}
+.homelogin{
+	float:right;
+	margin-right:100px;
+}
