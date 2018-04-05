@@ -8,6 +8,7 @@ use Redirect;
 use App\BISModel;
 use View;
 use link;
+use file;
 use Illuminate\Support\Facades\Input;
 //use Illuminate\Support\Facades\Redirect;
 use Image;
@@ -104,7 +105,7 @@ class firstController extends Controller
         $data1=DB::table('store_info')->select('Dues')->sum('Dues');
         session()->flash('paid',$data);
         session()->flash('dues',$data1);
-        $all=DB::table('store_info')->paginate(6);
+        $all=DB::table('store_info')->paginate(10);
         return view('frontEnd.Profile',['all'=>$all])->render();
         #$array=array($data,$data1);
         #return $array;
@@ -168,6 +169,8 @@ class firstController extends Controller
          $description=$req->input('description');
          $paid=$req->input('paid');
          $dues=$req->input('dues');
+         if (empty($_POST['value'])) {
+             # code...
          $edit=DB::update('UPDATE store_info SET C_name=?,Date=?,Description=?,Paid=?,Dues=? WHERE C_ID=?',[$cname,$date,$description,$paid,$dues,$cid]);
          if ($edit==true) {
              session()->flash('editmessage','Records Updated Successfully!');
@@ -176,6 +179,38 @@ class firstController extends Controller
              session()->flash('editmessage1','Unsuccessful To Update!');
              return view('frontEnd.Search');
          }
+        }elseif ($_POST['value']=="plus") {
+            # code...
+            $foradd=$req->input('plusvalue');
+            $fpaid = $paid+$foradd;
+            if($dues>=$foradd){
+                $fdues = $dues-$foradd;
+            }else{
+                $fdues = $foradd-$dues;
+            }
+            $edit=DB::update('UPDATE store_info SET C_name=?,Date=?,Description=?,Paid=?,Dues=? WHERE C_ID=?',[$cname,$date,$description,$fpaid,$fdues,$cid]);
+         if ($edit==true) {
+             session()->flash('editmessage','Records Updated Successfully!');
+             return view('frontEnd.Search');
+         }else{
+             session()->flash('editmessage1','Unsuccessful To Update!');
+             return view('frontEnd.Search');
+         }
+        }elseif($_POST['value']=="minus"){
+            $forsub=$req->input('minusvalue');
+            $fpaid = $paid-$forsub;
+            if($dues>=$forsub||$dues<$forsub){
+                $fdues = $dues+$forsub;
+            }
+            $edit=DB::update('UPDATE store_info SET C_name=?,Date=?,Description=?,Paid=?,Dues=? WHERE C_ID=?',[$cname,$date,$description,$fpaid,$fdues,$cid]);
+         if ($edit==true) {
+             session()->flash('editmessage','Records Updated Successfully!');
+             return view('frontEnd.Search');
+         }else{
+             session()->flash('editmessage1','Unsuccessful To Update!');
+             return view('frontEnd.Search');
+         }
+        }
     }
 
 

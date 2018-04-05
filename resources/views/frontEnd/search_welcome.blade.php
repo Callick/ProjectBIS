@@ -17,7 +17,7 @@ BIS Search
 <li role="presentation"><a style="pointer-events: none;" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" href="" title="choose your wishes">Options<span class="caret"></span></a>
 <ul class="dropdown-menu"><!-- next 3lines are hoverable dropdown items-->
 <li><a href="{{url('/BIS_add')}}" title="store customer informations" ><span class="glyphicon glyphicon-plus-sign"></span> ADD INFO </a></li>
-<li><a href="#edit info" title="update customer informations" ><span class="glyphicon glyphicon-edit"></span> EDIT INFO </a></li>
+<!--<li><a href="#edit info" title="update customer informations" ><span class="glyphicon glyphicon-edit"></span> EDIT INFO </a></li>-->
 <li><a href="{{url('/BIS_delete')}}" title="delete customer informations" ><span class="glyphicon glyphicon-minus-sign"></span> DELETE INFO </a></li>
 </ul></li>
 <li role="presentation"><a href="{{url('/search')}}" title="search customer details" ><span class="glyphicon glyphicon-search"></span>Search </a>
@@ -41,6 +41,9 @@ tr{
 }
 </style>-->
 <!--<link rel="stylesheet" type="text/css" href="{{asset('css/BIS add.css')}}">-->
+<script type="text/javascript" src="{{asset('js/paidedit.js')}}"></script>
+<script type="text/javascript" src="{{asset('js/RadioClear.js')}}"></script>
+
 <div class="page-header">
 	<h3 style="color:#7DB3FD;" title="store customer informations"> SEARCH Customer History</h3>
 	<h title="Please fill the field"> <i>Fill The <span class="glyphicon glyphicon-star"></span> Required Field.</i> </h><br></br>
@@ -64,13 +67,13 @@ tr{
 	<thead>
 		<tr>
 		
-			<th>Customer ID</th><br>
-			<th>Customer Name</th>
-			<th>Date</th>
-			<th>Description</th>
-			<th>Paid</th>
-			<th>Dues</th>
-			<th>Options</th>
+			<th style="text-align: center">Customer ID</th><br>
+			<th style="text-align: center">Customer Name</th>
+			<th style="text-align: center">Date</th>
+			<th style="text-align: center">Description</th>
+			<th style="text-align: center">Paid</th>
+			<th style="text-align: center">Dues</th>
+			<th style="text-align: center">Options</th>
 		</tr>
 	</thead>	
 	<br></br>
@@ -103,6 +106,13 @@ tr{
 						    Date:<input type="date" name="date" class="form-control input-lg" aria-describedby="basic-addon" value="{{ $data->Date }}"><br></br>
 						    Description:<textarea class="form-control input-lg" aria-describedby="basic-addon" name="description" rows="3"> {{ $data->Description }} </textarea><br></br>
 						    Paid:<input type="number" name="paid" class="form-control input-lg" aria-describedby="basic-addon" value="{{ $data->Paid }}"><br></br>
+						    <label><strong>+</strong></label> <input type="radio" name="value" value="plus" id="plusCheck" onclick="plusminusCheck();">
+						    <label><strong>-</strong></label> <input type="radio" name="value" value="minus" id="minusCheck" onclick="plusminusCheck();">
+						    <!--<input type="button" value="Reset" onclick="Clear();">-->
+						    <div style="visibility: hidden;">
+						    	<input type="number" name="plusvalue" id="ifPlus" placeholder="Value For Addition">
+						    	<input type="number" name="minusvalue" id="ifMinus" placeholder="Value For Subtraction">
+						    </div>
 						    Dues:<input type="number" name="dues" class="form-control input-lg" aria-describedby="basic-addon" value="{{ $data->Dues }}"><br></br>
 						    <input type="submit" name="editinfo" class="button" value="EDIT INFO">
 					    </div>

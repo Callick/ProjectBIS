@@ -29,7 +29,7 @@ SignUp
 		<span class="glyphicon glyphicon-star"></span><input class="form-control input-lg"
 		aria-describedby="basic-addon" type="text" name="firstname" placeholder="User Name" size="20" required><br></br>
 		<span class="glyphicon glyphicon-star"></span><input class="form-control input-lg"
-		aria-describedby="basic-addon" type="E-mail" name="email" placeholder="E_mail" required><br></br>
+		aria-describedby="basic-addon" type="E-mail" name="email" placeholder="Email" required><br></br>
 		<span class="glyphicon glyphicon-star"></span>+880<input class="form-control input-lg"
 		aria-describedby="basic-addon" type="number" name="phone" placeholder="Mobile Number" size="15" required><br></br>
 		<input type="hidden" name="_token"  value="{{csrf_token()}}">
@@ -43,19 +43,19 @@ SignUp
 		aria-describedby="basic-addon" type="radio" name="gender" value="male">Male 
 		<input class="form-control input-sm"
 		aria-describedby="basic-addon" type="radio" name="gender" value="female" required>Female<br></br>-->
-		<span class="glyphicon glyphicon-star"></span><input class="form-control input-lg"
+		<span class="glyphicon glyphicon-star"></span> <label for="UPIM">Upload Image</label> <input class="form-control input-lg"
 		aria-describedby="basic-addon" type="file" name="imageup" accept="image/*" required><br></br>
 		<!--<span class="glyphicon glyphicon-star"></span>
 		<textarea class="form-control input-lg"
 		aria-describedby="basic-addon" name="address" maxlength="200" rows="5" placeholder="Address" required>	</textarea><br></br>-->
-		<span class="glyphicon glyphicon-star"></span><select class="form-control input-lg"
+		<!--<span class="glyphicon glyphicon-star"></span><select class="form-control input-lg"
 		aria-describedby="basic-addon" name="Religion" style="border-radius: 10px" required>
 		<option value="">---select religion---</option>
 		<option value="Muslim">Muslim</option>
 		<option value="Hindu">Hindu</option>
 		<option value="Christian">Christian</option>
 		<option value="Buddhism">Buddhism</option>
-		</select><br></br>
+		</select><br></br>-->
 		<!--<span class="glyphicon glyphicon-star"></span><input class="form-control input-sm"
 		aria-describedby="basic-addon" type="checkbox" name="CheckBox" required> I agree with terms & conditions<br></br>-->
 		<input type="submit" name="submit" class="button" value="Register">

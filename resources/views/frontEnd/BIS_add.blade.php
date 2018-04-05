@@ -17,7 +17,7 @@ ADD CUSTOMER DETAILS
 <li role="presentation"><a style="pointer-events: none;" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" href="" title="choose your wishes">Options<span class="caret"></span></a>
 <ul class="dropdown-menu"><!-- next 3lines are hoverable dropdown items-->
 <li><a href="{{url('/BIS_add')}}" title="store customer informations" ><span class="glyphicon glyphicon-plus-sign"></span> ADD INFO </a></li>
-<li><a href="#edit info" title="update customer informations" ><span class="glyphicon glyphicon-edit"></span> EDIT INFO </a></li>
+<!--<li><a href="#edit info" title="update customer informations" ><span class="glyphicon glyphicon-edit"></span> EDIT INFO </a></li>-->
 <li><a href="{{url('/BIS_delete')}}" title="delete customer informations" ><span class="glyphicon glyphicon-minus-sign"></span> DELETE INFO </a></li>
 </ul></li>
 <li role="presentation"><a href="{{url('/search')}}" title="search customer details" ><span class="glyphicon glyphicon-search"></span>Search </a>
@@ -78,7 +78,7 @@ aria-describedby="basic-addon" name="description" rows="5" placeholder="Descript
 aria-describedby="basic-addon" type="number" name="paid" onkeyup="numbersOnly(this)" placeholder="Paid" size="15" required><br></br>
 <span class="glyphicon glyphicon-star"></span><input class="form-control input-lg"
 aria-describedby="basic-addon" type="number" name="dues" onkeyup="numbersOnly(this)" placeholder="Dues" size="15" required><br></br>
-<span class="glyphicon glyphicon-star"></span><input class="form-control input-lg"
+<span class="glyphicon glyphicon-star"></span><label for="UPIM">Upload Image</label><input class="form-control input-lg"
 aria-describedby="basic-addon" type="file" name="image" accept="image/*" required><br></br>
 <input type="submit" name="addinfo" class="button" value="ADD INFO">
 
